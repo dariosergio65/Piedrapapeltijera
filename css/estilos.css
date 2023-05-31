@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Work+Sans:wght@100;300;400;500;600;700&display=swap');
+
+/*reseteo de valores- reset*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+
+#pantalla2{ /* para poner una seccion en none */
+  display: none;
+}
+
+.medida{
+  width: 12em;
+}
+
+.shake { /* animacion */
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  animation: shakeY; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+.bordeado{
+  border: 1px blue solid;
+}
+
+.botones{
+  background: orange;
+  margin: 1em auto;
+}
+
+
+/*tablet*/
+@media screen and (min-width:768px) and (max-width:1023px) {
+    /*se cargaron los estilos dentro de las llaves*/
+    .contenedorNav{
+        background-color: rgb(245, 213, 50);
+        flex-direction: column;
+        height: initial;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+/*notebook*/
+@media screen and (min-width:1024px) and (max-width: 1400px) {
+    .contenedorNav{
+        background-color: rgb(245, 50, 222);
+    }
+
+}
+
+@media screen and (min-width:1401px) {
+    
+}

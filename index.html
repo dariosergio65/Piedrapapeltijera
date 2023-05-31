@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Proyecto</title>
+        <!--kit de fontawesome-->
+        <script src="https://kit.fontawesome.com/c538ed8188.js" crossorigin="anonymous"></script>
+        <!--bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!--cargar estilos propios de manera externa-->
+        <link rel="stylesheet" href="./css/estilos.css">
+        <!--favicon-->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+       
+    </head> 
+   
+    <body>
+        <br><br>
+    <main id="pantalla1">    
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4  align-self-center">
+                    <h2>Piedra Papel o Tijera</h2>
+                    <h3>Contra la computadora</h3>
+                    <hr>
+                    <br><br>
+                    <form action="">
+                        <div class="row justify-content-center">
+                            <div class="d-grid col-6 ">
+                                <input type="text" placeholder="Aquí tu nombre">
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="row justify-content-center">
+                            <div class="d-grid col-6 ">
+                                <button type="button" class="btn btn-success" id="inicio" onclick="ini()">Inicio</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <section id="pantalla2">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <fieldset class="form-group border p-3">
+                                <legend >Computadora</legend>
+                                    <img src="./assets/img/Piedra.png" alt="Piedra" class="medida shake">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-5">
+                            <fieldset class="form-group border p-3">
+                                <legend>Jugador/a</legend>
+                                    <img src="./assets/img/Piedra-der.png" alt="Piedra" class="medida shake">
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-5 botones">elegir aqui
+                            <br>
+                            <div class="elegir">
+                            <input type="radio" name="motor" value="sinMotor" class="radios" checked style="position: relative; left: 3px;"> <label for="opMotor48">Piedra</label>
+                            <br>
+                            <input type="radio" name="motor" value="opMotor48" class="radios" style="position: relative; left: 3px;"> <label for="opMotor48">Papel</label>
+                            <br>
+                            <input type="radio" name="motor" value="opMotor110" class="radios" style="position: relative; left: 3px;"> <label for="opMotor110">Tijera</label>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 bordeado">
+                    <h2>Resultado Global</h2>
+                    <h3 >fjfjfj</h3>
+                    <h3 >fjfjfj</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        <script src="../js/juego.js"></script>
+    </body>
+</html>

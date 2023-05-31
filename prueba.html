@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <style>
+        /* Hide the toggle checkbox */
+#expand-toggle {
+  display: none;
+}
+
+/* Hide expandable content by default */
+.expandable {
+  visibility: collapse;
+  background: #ddd;
+}
+
+/* Style the button */
+#expand-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 11px;
+  background-color: #ff7;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+/* Show hidden content when the checkbox is checked */
+#expand-toggle:checked ~ * .expandable {
+  visibility: visible;
+}
+
+/* Style the button when the checkbox is checked */
+#expand-toggle:checked ~ #expand-btn {
+  background-color: #ccc;
+}
+
+.my-element { /* animacion */
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  animation: rollOut; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="expand-toggle" />
+
+    <h1 class="my-element">An animated element</h1>
+
+<table>
+  <thead>
+    <tr><th>Columna #1</th><th>Columna #2</th><th>Columna #3</th></tr>
+  </thead>
+  <tbody>
+    <tr class="expandable"><td>[more text]</td><td>[more text]</td><td>[more text]</td></tr>
+    <tr><td>[cell text]</td><td>[cell text]</td><td>[cell text]</td></tr>
+    <tr><td>[cell text]</td><td>[cell text]</td><td>[cell text]</td></tr>
+    <tr class="expandable"><td>[more text]</td><td>[more text]</td><td>[more text]</td></tr>
+    <tr class="expandable"><td>[more text]</td><td>[more text]</td><td>[more text]</td></tr>
+  </tbody>
+</table>
+
+<label for="expand-toggle" id="expand-btn">Toggle hidden rows</label>
+
+</body>
+</html>
