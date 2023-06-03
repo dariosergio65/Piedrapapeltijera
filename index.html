@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
        
     </head> 
+
    
     <body>
         <br><br>
@@ -53,25 +54,29 @@
                         <div class="col-md-5">
                             <fieldset class="form-group border p-3">
                                 <legend >Computadora</legend>
-                                    <img src="./assets/img/Piedra.png" alt="Piedra" class="medida shake">
+                                    <img src="./assets/img/Piedra.png" alt="Piedra" class="medida">
                             </fieldset>
                         </div>
                         <div class="col-md-5">
                             <fieldset class="form-group border p-3">
                                 <legend>Jugador/a</legend>
-                                    <img src="./assets/img/Piedra-der.png" alt="Piedra" class="medida shake">
+                                    <img src="./assets/img/Piedra-der.png" alt="Piedra" class="medida">
                             </fieldset>
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-md-5 botones">elegir aqui
+                        <div class="col-md-4 botones">elegir aqui
                             <br>
                             <div class="elegir">
-                            <input type="radio" name="motor" value="sinMotor" class="radios" checked style="position: relative; left: 3px;"> <label for="opMotor48">Piedra</label>
+                            <input type="radio" name="ppt" value="piedra" class="radios" id="piedra"  style="position: relative; left: 3px;"> <label for="piedra">Piedra</label>
                             <br>
-                            <input type="radio" name="motor" value="opMotor48" class="radios" style="position: relative; left: 3px;"> <label for="opMotor48">Papel</label>
+                            <input type="radio" name="ppt" value="papel" class="radios" id="papel" style="position: relative; left: 3px;"> <label for="papel">Papel</label>
                             <br>
-                            <input type="radio" name="motor" value="opMotor110" class="radios" style="position: relative; left: 3px;"> <label for="opMotor110">Tijera</label>
+                            <input type="radio" name="ppt" value="tijera" class="radios" id="tijera" style="position: relative; left: 3px;"> <label for="tijera">Tijera</label>
+                            </div>
+                            <br>
+                            <div class="d-grid col-6 ">
+                                <button type="button" class="btn btn-success" id="elejido">Elejido</button>
                             </div>
                             <br>
                         </div>
