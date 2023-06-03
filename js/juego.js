@@ -62,13 +62,13 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
     function miEleccion(pipati){
       const elemento = document.getElementsByClassName("medida");
       if(pipati==="piedra"){
-        elemento[1].src="../assets/img/Piedra-der.png";
+        elemento[1].src="./assets/img/Piedra-der.png";
       }
       if(pipati==="papel"){
-        elemento[1].src="../assets/img/Papel-der.png";
+        elemento[1].src="./assets/img/Papel-der.png";
       }
       if(pipati==="tijera"){
-        elemento[1].src="../assets/img/Tijera-der.png";
+        elemento[1].src="./assets/img/Tijera-der.png";
       }
       
       
@@ -78,13 +78,13 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
       const elemento = document.getElementsByClassName("medida");
       let num = Math.floor(Math.random() * cant);
       if(num===0){
-        elemento[0].src="../assets/img/Piedra.png";
+        elemento[0].src="./assets/img/Piedra.png";
       }
       if(num===1){
-        elemento[0].src="../assets/img/Papel.png";
+        elemento[0].src="./assets/img/Papel.png";
       }
       if(num===2){
-        elemento[0].src="../assets/img/Tijera.png";
+        elemento[0].src="./assets/img/Tijera.png";
       }
     }
 
