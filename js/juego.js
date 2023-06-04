@@ -24,6 +24,8 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
 
     $("#elejido").click(function() {
 
+      rese(); //borra una alerta si la hubiere
+      
       const boton = document.getElementById("elejido");
       boton.disabled=true;
 
@@ -45,7 +47,8 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
         eleccion="tijera";
       }
       if(j===0){
-        alert('no eligio ninguna opcion');
+        //alert('no eligio ninguna opcion');
+        mialerta("No eligió ninguna opción");
         normalizar("medida");
         return;
       }
@@ -102,5 +105,41 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
 
     }
 
-    //elijeCompu(3);
+    function mialerta(texto){
+    
+      var alerta = document.createElement('div');
+      alerta.classList.add('alert', 'alert-danger', 'mt-3', 'alert-dismissible');
+      alerta.setAttribute('role', 'alert');
+      alerta.id = 'idalerta';
+  
+      // Agregar el contenido al alerta
+      var mensaje = document.createTextNode(texto);
+      alerta.appendChild(mensaje);
+    
+      //boton
+      var boton = document.createElement('button');
+      boton.classList.add('btn-close');
+      boton.setAttribute('type', 'button');
+      boton.setAttribute('data-bs-dismiss', 'alert');
+      boton.setAttribute('aria-label', 'close');
+      /*
+      boton.addEventListener('click', function() {
+        alerta.remove(); // Cerrar la alerta al hacer clic en el botón de cierre
+      });
+      */
+      alerta.appendChild(boton);
+  
+      // Agregar el alerta al documento
+      var contenedor = document.querySelector('#alerta');
+      contenedor.appendChild(alerta);
+    }
+
+    function rese(){ // lo único que hace es borrar una alarma remanente si la hubiere
+      // se ejecuta con los botones Borrar y Resumen
+      let rem = document.getElementById('idalerta'); 
+      if (rem != null){
+       rem.remove();
+      }
+   }
+
   });
