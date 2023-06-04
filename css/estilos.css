@@ -40,6 +40,15 @@ body{
   border: 1px blue solid;
 }
 
+.puntos{
+  background: orange;
+  margin: 1em;
+  width: 2em;
+  padding: 2px;
+  font-weight: bold;
+  border: 1px black solid;
+}
+
 
 /*tablet*/
 @media screen and (min-width:768px) and (max-width:1023px) {
