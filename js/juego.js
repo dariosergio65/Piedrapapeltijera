@@ -46,6 +46,7 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
       }
       if(j===0){
         alert('no eligio ninguna opcion');
+        normalizar("medida");
         return;
       }
       //hacemos que las manos cerradas se agiten agregando la clase shake a los img
