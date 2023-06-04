@@ -27,7 +27,7 @@ body{
   margin: 0 0.5rem;
 
   animation: shakeY; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 2s; /* don't forget to set a duration! */
+  animation-duration: 1s; /* don't forget to set a duration! */
 }
 
 .bordeado{
@@ -37,6 +37,7 @@ body{
 .botones{
   background: orange;
   margin: 1em auto;
+  border: 1px blue solid;
 }
 
 

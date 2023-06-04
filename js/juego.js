@@ -11,8 +11,13 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
 
   $(document).ready(function() {
     $("#inicio").click(function() {
-
+     
       $('#pantalla1').hide();
+
+      const nom = document.getElementById("nom");
+      let nombre = nom.value;
+      const jug = document.getElementById("jugader");
+      jug.textContent += nombre;
       $('#pantalla2').show();
       
     });
@@ -49,10 +54,10 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
       elemento[i].className += " shake";
 
       //retraso de 2 segundos para que se vea la animacion anterior
-      setTimeout(miEleccion , 1999 , eleccion);
+      setTimeout(miEleccion , 999 , eleccion);
       //elijeCompu(3);
-      setTimeout(elijeCompu , 2000 , 3);
-      setTimeout(normalizar , 2001 , "medida");
+      setTimeout(elijeCompu , 1000 , 3);
+      setTimeout(normalizar , 1001 , "medida");
 
       
     });
