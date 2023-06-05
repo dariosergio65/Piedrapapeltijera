@@ -10,6 +10,12 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
   // el button debe tener el id "inicio"
 
   $(document).ready(function() {
+
+    let compuEleccion="";
+    let eleccionjug="";
+    let puntocompu=0;
+    let puntojug=0;
+
     $("#inicio").click(function() {
      
       $('#pantalla1').hide();
@@ -30,21 +36,21 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
       boton.disabled=true;
 
       let j=0;
-      let eleccion="";
+      // vemos que elige el jugador
       if (document.getElementById('piedra').checked)
       {
         j=j+1;
-        eleccion="piedra";
+        eleccionjug="piedra";
       }
       if (document.getElementById('papel').checked)
       {
         j=j+1;
-        eleccion="papel";
+        eleccionjug="papel";
       }
       if (document.getElementById('tijera').checked)
       {
         j=j+1;
-        eleccion="tijera";
+        eleccionjug="tijera";
       }
       if(j===0){
         //alert('no eligio ninguna opcion');
@@ -52,16 +58,35 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
         normalizar("medida");
         return;
       }
+      // ahora elige la compu al azar
+      let num = Math.floor(Math.random() * 3);
+      if(num===0){
+        // elemento[0].src="./assets/img/Piedra.png";
+        compuEleccion="piedra";
+      }
+      if(num===1){
+        // elemento[0].src="./assets/img/Papel.png";
+        compuEleccion="papel";
+      }
+      if(num===2){
+        // elemento[0].src="./assets/img/Tijera.png";
+        compuEleccion="tijera";
+      }
+
       //hacemos que las manos cerradas se agiten agregando la clase shake a los img
       const elemento = document.getElementsByClassName("medida");
       for(let i = 0; i < elemento.length; i++)
       elemento[i].className += " shake";
 
       //retraso de 2 segundos para que se vea la animacion anterior
-      setTimeout(miEleccion , 999 , eleccion);
+      setTimeout(miEleccion , 999 , eleccionjug);
       //elijeCompu(3);
-      setTimeout(elijeCompu , 1000 , 3);
+      setTimeout(imgCompu , 1000 , compuEleccion);
       setTimeout(normalizar , 1001 , "medida");
+      setTimeout(elecciones , 1002 , compuEleccion , eleccionjug);
+      setTimeout(ganaPunto , 1003);
+
+      
 
       
     });
@@ -83,17 +108,20 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
       
     }
 
-    function elijeCompu(cant){// elegimos al azar la imajen de la compu (lado izqierdo)
+    function imgCompu(compu){// elegimos al azar la imajen de la compu (lado izqierdo)
       const elemento = document.getElementsByClassName("medida");
-      let num = Math.floor(Math.random() * cant);
-      if(num===0){
+      // let num = Math.floor(Math.random() * cant);
+      if(compu==="piedra"){
         elemento[0].src="./assets/img/Piedra.png";
+        // compuEleccion="piedra";
       }
-      if(num===1){
+      if(compu==="papel"){
         elemento[0].src="./assets/img/Papel.png";
+        compuEleccion="papel";
       }
-      if(num===2){
+      if(compu==="tijera"){
         elemento[0].src="./assets/img/Tijera.png";
+        compuEleccion="tijera";
       }
     }
 
@@ -140,6 +168,53 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
       if (rem != null){
        rem.remove();
       }
+   }
+
+   function elecciones(compu, jugader){
+    let choice=compu+jugader;
+    let alerta=`Se eligió: ${compu} ${jugader}`;
+
+    switch (choice) {
+      case 'piedrapiedra':
+      case 'papelpapel':
+      case 'tijeratijera':
+        alerta=alerta + ` Resultado: empate (nadie suma)`
+        break;
+      case 'piedrapapel':
+        alerta=alerta + ` Resultado: Punto para Jugader`
+        puntojug++;
+        break;
+      case 'piedratijera':
+        alerta=alerta + ` Resultado: Punto para la Compu`
+        puntocompu++;
+        break;
+      case 'papelpiedra':
+        alerta=alerta + ` Resultado: Punto para la Compu`
+        puntocompu++;
+        break;
+      case 'papeltijera':
+        alerta=alerta + ` Resultado: Punto para Jugader`
+        puntojug++;
+        break;
+      case 'tijerapiedra':
+        alerta=alerta + ` Resultado: Punto para Jugader`
+        puntojug++;
+        break;
+      case 'tijerapapel':
+        alerta=alerta + ` Resultado: Punto para la Compu`
+        puntocompu++;
+        break;
+      default:
+          console.log(`Sorry, we are out of ${choice}.`);
+    }
+    mialerta(alerta);
+   }
+
+   function ganaPunto(){
+    const valorCompu = document.getElementById('compu');
+    const valorJuga = document.getElementById('juga');
+    valorCompu.textContent = puntocompu;
+    valorJuga.textContent = puntojug;
    }
 
   });
