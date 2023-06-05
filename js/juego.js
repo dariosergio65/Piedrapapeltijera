@@ -1,5 +1,6 @@
 
 //onclick="ini()" debe estar en el button inicio
+// anulado por mala práctica
 /*
 function ini(){ //funcion que se ejecuta al hacer click en inicio
 
@@ -7,6 +8,8 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
   $('#pantalla2').show();
 }
 */
+
+//Otra forma:
   // el button debe tener el id "inicio"
 
   $(document).ready(function() {
@@ -15,22 +18,28 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
     let eleccionjug="";
     let puntocompu=0;
     let puntojug=0;
+    const elemento = document.getElementsByClassName("medida");
+    
 
     $("#inicio").click(function() {
      
-      $('#pantalla1').hide();
+      $('#pantalla1').hide(); //oculta la pantalla de inicio
 
       const nom = document.getElementById("nom");
       let nombre = nom.value;
       const jug = document.getElementById("jugader");
       jug.textContent += nombre;
-      $('#pantalla2').show();
+
+      $('#pantalla2').show(); //muestra la pantalla de juego
       
     });
 
     $("#elejido").click(function() {
 
+      elemento[0].src="./assets/img/Piedra.png"; // vuelve a poner las manos en piedra para la animación
+      elemento[1].src="./assets/img/Piedra-der.png";
       rese(); //borra una alerta si la hubiere
+
       
       const boton = document.getElementById("elejido");
       boton.disabled=true;
@@ -74,27 +83,21 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
       }
 
       //hacemos que las manos cerradas se agiten agregando la clase shake a los img
-      const elemento = document.getElementsByClassName("medida");
+      // const elemento = document.getElementsByClassName("medida");
       for(let i = 0; i < elemento.length; i++)
       elemento[i].className += " shake";
 
-      //retraso de 2 segundos para que se vea la animacion anterior
+      //retraso de 1 segundos para que se vea la animacion anterior
       setTimeout(miEleccion , 999 , eleccionjug);
-      //elijeCompu(3);
       setTimeout(imgCompu , 1000 , compuEleccion);
       setTimeout(normalizar , 1001 , "medida");
       setTimeout(elecciones , 1002 , compuEleccion , eleccionjug);
       setTimeout(ganaPunto , 1003);
-
-      
-
       
     });
 
-    
-
     function miEleccion(pipati){
-      const elemento = document.getElementsByClassName("medida");
+      // const elemento = document.getElementsByClassName("medida");
       if(pipati==="piedra"){
         elemento[1].src="./assets/img/Piedra-der.png";
       }
@@ -104,16 +107,12 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
       if(pipati==="tijera"){
         elemento[1].src="./assets/img/Tijera-der.png";
       }
-      
-      
     }
 
-    function imgCompu(compu){// elegimos al azar la imajen de la compu (lado izqierdo)
-      const elemento = document.getElementsByClassName("medida");
-      // let num = Math.floor(Math.random() * cant);
+    function imgCompu(compu){// cambiamos la imajen de la compu (lado izqierdo)
       if(compu==="piedra"){
         elemento[0].src="./assets/img/Piedra.png";
-        // compuEleccion="piedra";
+        compuEleccion="piedra";
       }
       if(compu==="papel"){
         elemento[0].src="./assets/img/Papel.png";
@@ -126,11 +125,10 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
     }
 
     function normalizar(normal){
-      const elemento = document.getElementsByClassName("medida");
-      for(let i = 0; i < elemento.length; i++) elemento[i].className = normal; 
+      // const elemento = document.getElementsByClassName("medida"); 
+      for(let i = 0; i < elemento.length; i++) elemento[i].className = normal; //quitamos la clase shake para después activarla again 
       const boton = document.getElementById("elejido");
       boton.disabled=false; //habilitamos el button elejir
-
     }
 
     function mialerta(texto){
@@ -163,7 +161,6 @@ function ini(){ //funcion que se ejecuta al hacer click en inicio
     }
 
     function rese(){ // lo único que hace es borrar una alarma remanente si la hubiere
-      // se ejecuta con los botones Borrar y Resumen
       let rem = document.getElementById('idalerta'); 
       if (rem != null){
        rem.remove();
